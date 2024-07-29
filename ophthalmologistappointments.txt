@@ -1,0 +1,8 @@
+Patient ID: 123
+Patient Name: helin
+Patient Surname: mazi
+Doctor Name: John
+Doctor Surname: Smith
+Room Number: 101
+Time Slot: 9:00 AM
+-----------------------

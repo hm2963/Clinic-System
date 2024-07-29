@@ -1,0 +1,8 @@
+Patient ID: 345
+Patient Name: ilker
+Patient Surname: mazi
+Doctor Name: Zam
+Doctor Surname: Davis
+Room Number: 103
+Time Slot: 11:00 AM
+-----------------------
