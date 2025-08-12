@@ -46,76 +46,78 @@ Clinic Appointment System
 3. Cancel Appointment
 4. Exit
 Enter your choice:
+```
 
-Scheduling flow (example):
+**Scheduling flow (example):**
+1. Choose department (1–3)
+2. Pick a listed doctor and an available slot
+3. Enter name, surname, and patient ID  
+   → Success message; files updated (`*appointments.txt` & doctor timeslots with `BOOKED`).
 
-Choose department (1–3)
+**Viewing/Canceling:**  
+Enter Patient ID and select department; the app looks up (or removes) the appointment in the matching `*appointments.txt`.
 
-Pick a listed doctor and an available slot
+---
 
-Enter name, surname, and patient ID
-→ Success message; files updated (*appointments.txt & doctor timeslots with BOOKED).
-
-Viewing/Canceling:
-Enter Patient ID and select department; the app looks up (or removes) the appointment in the matching *appointments.txt.
-
-Project Structure
-
+## Project Structure
+```text
 Clinic-System/
-
 ├─ FINAL_PROJECT.cpp
-
 ├─ ophthalmologists.txt
-
 ├─ optometrists.txt
-
 ├─ opticians.txt
-
 ├─ ophthalmologistappointments.txt
-
 ├─ optometristappointments.txt
-
 ├─ opticianappointments.txt
-
 └─ README.md
+```
 
-Build & Run
-Linux / macOS / WSL (g++)
+> Tip: You can later move the `.txt` files into a `data/` folder and update paths in code.
 
+---
+
+## Build & Run
+
+### Linux / macOS / WSL (g++)
+```bash
 g++ -std=c++11 FINAL_PROJECT.cpp -o clinic
 ./clinic
+```
 
-Windows (MSVC Developer Command Prompt)
-
+### Windows (MSVC Developer Command Prompt)
+```bat
 cl /EHsc /std:c++14 FINAL_PROJECT.cpp
 FINAL_PROJECT.exe
-The code targets C++11; newer standards also work.
+```
 
-Data Files & Formats
-Doctor files (ophthalmologists.txt, optometrists.txt, opticians.txt)
+> The code targets C++11; newer standards also work.
+
+---
+
+## Data Files & Formats
+
+### Doctor files (`ophthalmologists.txt`, `optometrists.txt`, `opticians.txt`)
 Each doctor block:
 
-Name (line 1)
+1. Name (line 1)  
+2. Surname (line 2)  
+3. Room number (line 3, integer)  
+4. One timeslot per line (e.g., `9:00 AM`). Booked slots become `9:00 AM BOOKED`.  
+5. Blank line separates doctors
 
-Surname (line 2)
-
-Room number (line 3, integer)
-
-One timeslot per line (e.g., 9:00 AM).
-Booked slots become 9:00 AM BOOKED.
-
-Blank line separates doctors
-
-Example:
+**Example:**
+```text
 John
 Smith
 101
 9:00 AM BOOKED
 10:00 AM
 2:00 PM
+```
 
-Appointment files (*appointments.txt)
+### Appointment files (`*appointments.txt`)
 Key–value lines per appointment, separated by a dashed line:
+```text
 Patient ID: 123
 Patient Name: helin
 Patient Surname: mazi
@@ -124,9 +126,14 @@ Doctor Surname: Smith
 Room Number: 101
 Time Slot: 9:00 AM
 -----------------------
+```
 
-Sample Data (included)
-ophthalmologists.txt
+---
+
+## Sample Data (included)
+
+### `ophthalmologists.txt`
+```text
 John
 Smith
 101
@@ -140,16 +147,20 @@ Rose
 8:00 AM
 9:30 AM
 3:50 PM
+```
 
-optometrists.txt
+### `optometrists.txt`
+```text
 Emma
 Johnson
 102
 10:00 AM BOOKED
 11:00 AM
 3:00 PM
+```
 
-opticians.txt
+### `opticians.txt`
+```text
 Zam
 Davis
 103
@@ -163,8 +174,10 @@ Gidiya
 9:00 AM
 10:00 AM
 12:00 PM
+```
 
-ophthalmologistappointments.txt
+### `ophthalmologistappointments.txt`
+```text
 Patient ID: 123
 Patient Name: helin
 Patient Surname: mazi
@@ -173,8 +186,10 @@ Doctor Surname: Smith
 Room Number: 101
 Time Slot: 9:00 AM
 -----------------------
+```
 
-optometristappointments.txt
+### `optometristappointments.txt`
+```text
 Patient ID: 234
 Patient Name: seyran
 Patient Surname: mazi
@@ -183,8 +198,10 @@ Doctor Surname: Johnson
 Room Number: 102
 Time Slot: 10:00 AM
 -----------------------
+```
 
-opticianappointments.txt
+### `opticianappointments.txt`
+```text
 Patient ID: 345
 Patient Name: ilker
 Patient Surname: mazi
@@ -193,51 +210,45 @@ Doctor Surname: Davis
 Room Number: 103
 Time Slot: 11:00 AM
 -----------------------
+```
 
-Design Notes
-OOP model
+---
 
-Person → base for Patient and Doctor
+## Design Notes
+- **OOP model**
+  - `Person` → base for `Patient` and `Doctor`
+  - `Appointment` composes a `Patient`, `Doctor`, and a `timeslot`
+  - `ClinicSystem` loads doctors and implements actions
+- **Single source of truth**
+  - Doctor availability lives in doctor files; booking toggles `BOOKED` inline
+- **Separation by department**
+  - Keeps data isolated and simple to reason about
 
-Appointment composes a Patient, Doctor, and a timeslot
+---
 
-ClinicSystem loads doctors and implements actions
+## Known Limitations
+- **Input robustness:** Minimal validation; unexpected input may require re-run.
+- **Menu typo:** The menu prints “Schedule an Appointments” (extra “s”).
+- **Session lifecycle:** A new `ClinicSystem` is constructed each loop iteration (files keep state; in-memory data reloads each time).
+- **No concurrency:** Simultaneous runs could race on files.
+- **IDs:** No cross-department uniqueness checks.
 
-Single source of truth
+---
 
-Doctor availability lives in doctor files; booking toggles BOOKED inline
+## Roadmap
+- Switch to CSV/JSON with light schema validation
+- Centralize appointments; derive availability dynamically
+- Stronger input validation & re-prompting on bad input
+- Unit tests + CI (GitHub Actions) for parsing & booking logic
+- Export daily schedules per department
+- Optional TUI/GUI (e.g., `ncurses`) for nicer UX
 
-Separation by department
+---
 
-Keeps data isolated and simple to reason about
+## Extras (CI & .gitignore)
 
-Known Limitations
-Input robustness: Minimal validation; unexpected input may require re-run.
-
-Menu typo: The menu prints “Schedule an Appointments” (extra “s”).
-
-Session lifecycle: A new ClinicSystem is constructed each loop iteration (files keep state; in-memory data reloads each time).
-
-No concurrency: Simultaneous runs could race on files.
-
-IDs: No cross-department uniqueness checks.
-
-Roadmap
-Switch to CSV/JSON with light schema validation
-
-Centralize appointments; derive availability dynamically
-
-Stronger input validation & re-prompting on bad input
-
-Unit tests + CI (GitHub Actions) for parsing & booking logic
-
-Export daily schedules per department
-
-Optional TUI/GUI (e.g., ncurses) for nicer UX
-
-Extras (CI & .gitignore)
-GitHub Actions: /.github/workflows/ci.yml
-
+**GitHub Actions: `/.github/workflows/ci.yml`**
+```yaml
 name: build
 on:
   push:
@@ -251,7 +262,10 @@ jobs:
         run: g++ -std=c++11 FINAL_PROJECT.cpp -o clinic
       - name: Smoke test (exit immediately)
         run: printf "4\n" | ./clinic
-.gitignore
+```
+
+**`.gitignore`**
+```text
 # C/C++ build artifacts
 *.o
 *.obj
@@ -267,4 +281,17 @@ Thumbs.db
 
 # Editors
 .vscode/
+```
 
+---
+
+## Small Code Polish (nice-to-have)
+- Fix the menu typo (`Appointments` → `Appointment`).
+- In `main()`, construct `ClinicSystem clinic;` **once** outside the loop to avoid reloading files every iteration.
+- Guard `cin` reads (e.g., `if (!(cin >> choice)) { /* clear & retry */ }`).
+- Prefer `const` and pass large objects by `const&` (e.g., `setAvailableTimeSlots(const vector<string>&)`).
+
+---
+
+## License
+This project is licensed under the **MIT License**.
