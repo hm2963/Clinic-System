@@ -63,6 +63,7 @@ Enter Patient ID and select department; the app looks up (or removes) the appoin
 
 ## Project Structure
 Clinic-System/
+
 ├─ FINAL_PROJECT.cpp
 
 ├─ ophthalmologists.txt
