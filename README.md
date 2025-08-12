@@ -47,19 +47,19 @@ Clinic Appointment System
 4. Exit
 Enter your choice:
 
-**Scheduling flow (example):**
-1. Choose department (1–3)
-2. Pick a listed doctor and an available slot
-3. Enter name, surname, and patient ID  
-→ Success message; files updated (`*appointments.txt` & doctor timeslots with `BOOKED`).
+Scheduling flow (example):
 
-**Viewing/Canceling:**  
-Enter Patient ID and select department; the app looks up (or removes) the appointment in the matching `*appointments.txt`.
+Choose department (1–3)
 
----
+Pick a listed doctor and an available slot
 
-## Project Structure
-Clinic-System/
+Enter name, surname, and patient ID
+→ Success message; files updated (*appointments.txt & doctor timeslots with BOOKED).
+
+Viewing/Canceling:
+Enter Patient ID and select department; the app looks up (or removes) the appointment in the matching *appointments.txt.
+
+Project Structure
 
 Clinic-System/
 
