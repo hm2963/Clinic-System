@@ -284,14 +284,3 @@ Thumbs.db
 ```
 
 ---
-
-## Small Code Polish (nice-to-have)
-- Fix the menu typo (`Appointments` → `Appointment`).
-- In `main()`, construct `ClinicSystem clinic;` **once** outside the loop to avoid reloading files every iteration.
-- Guard `cin` reads (e.g., `if (!(cin >> choice)) { /* clear & retry */ }`).
-- Prefer `const` and pass large objects by `const&` (e.g., `setAvailableTimeSlots(const vector<string>&)`).
-
----
-
-## License
-This project is licensed under the **MIT License**.
