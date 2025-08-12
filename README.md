@@ -95,6 +95,7 @@ g++ -std=c++11 FINAL_PROJECT.cpp -o clinic
 ```bash
 g++ -std=c++11 FINAL_PROJECT.cpp -o clinic
 ./clinic
+```
 
 Windows (MSVC Developer Command Prompt)
 
