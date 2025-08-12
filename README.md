@@ -64,6 +64,8 @@ Enter Patient ID and select department; the app looks up (or removes) the appoin
 ## Project Structure
 Clinic-System/
 
+Clinic-System/
+
 ├─ FINAL_PROJECT.cpp
 
 ├─ ophthalmologists.txt
@@ -80,22 +82,11 @@ Clinic-System/
 
 └─ README.md
 
----
+Build & Run
+Linux / macOS / WSL (g++)
 
-## Build & Run
-
-### Linux / macOS / WSL (g++)
-```bash
 g++ -std=c++11 FINAL_PROJECT.cpp -o clinic
 ./clinic
-
-## Build & Run
-
-### Linux / macOS / WSL (g++)
-```bash
-g++ -std=c++11 FINAL_PROJECT.cpp -o clinic
-./clinic
-```
 
 Windows (MSVC Developer Command Prompt)
 
