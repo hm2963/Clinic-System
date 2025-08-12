@@ -3,7 +3,6 @@
 [![Language: C++11](https://img.shields.io/badge/C%2B%2B-11-blue.svg)](https://isocpp.org/)
 [![Build: g++](https://img.shields.io/badge/build-g%2B%2B-brightgreen.svg)](#build--run)
 [![CI](https://github.com/hm2963/Clinic-System/actions/workflows/ci.yml/badge.svg)](../../actions/workflows/ci.yml)
-[![License: MIT](https://img.shields.io/badge/license-MIT-lightgrey.svg)](#license)
 
 A simple, file-backed clinic appointment system written in C++. Patients can **schedule**, **view**, and **cancel** appointments with three eye-care departments: **Ophthalmology**, **Optometry**, and **Opticianry**. Data persists in human-readable `.txt` files, keeping the project portable and easy to run.
 
