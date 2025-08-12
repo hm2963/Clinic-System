@@ -64,16 +64,20 @@ Enter Patient ID and select department; the app looks up (or removes) the appoin
 ## Project Structure
 Clinic-System/
 ├─ FINAL_PROJECT.cpp
+
 ├─ ophthalmologists.txt
+
 ├─ optometrists.txt
+
 ├─ opticians.txt
+
 ├─ ophthalmologistappointments.txt
+
 ├─ optometristappointments.txt
+
 ├─ opticianappointments.txt
+
 └─ README.md
-
-
-> Tip: You can later move the `.txt` files into a `data/` folder and update paths in code.
 
 ---
 
