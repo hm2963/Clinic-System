@@ -38,16 +38,13 @@ A simple, file-backed clinic appointment system written in C++. Patients can **s
 
 ## Demo
 
-On launch:
+**On launch:**
+```text
 Clinic Appointment System
-
-Schedule an Appointments
-
-View Appointment
-
-Cancel Appointment
-
-Exit
+1. Schedule an Appointments
+2. View Appointment
+3. Cancel Appointment
+4. Exit
 Enter your choice:
 
 **Scheduling flow (example):**
