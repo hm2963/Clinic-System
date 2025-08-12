@@ -20,8 +20,6 @@ A simple, file-backed clinic appointment system written in C++. Patients can **s
 - [Known Limitations](#known-limitations)
 - [Roadmap](#roadmap)
 - [Extras (CI & .gitignore)](#extras-ci--gitignore)
-- [Small Code Polish (nice-to-have)](#small-code-polish-nice-to-have)
-- [License](#license)
 
 ---
 
