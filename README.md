@@ -47,10 +47,6 @@ Cancel Appointment
 Exit
 Enter your choice:
 
-yaml
-Copy
-Edit
-
 **Scheduling flow (example):**
 1. Choose department (1–3)
 2. Pick a listed doctor and an available slot
@@ -74,12 +70,6 @@ Clinic-System/
 ├─ opticianappointments.txt
 └─ README.md
 
-yaml
-Copy
-Edit
-
-> Tip: You can later move the `.txt` files into a `data/` folder and update paths in code.
-
 ---
 
 ## Build & Run
@@ -89,9 +79,7 @@ Edit
 g++ -std=c++11 FINAL_PROJECT.cpp -o clinic
 ./clinic
 Windows (MSVC Developer Command Prompt)
-bat
-Copy
-Edit
+
 cl /EHsc /std:c++14 FINAL_PROJECT.cpp
 FINAL_PROJECT.exe
 The code targets C++11; newer standards also work.
@@ -113,9 +101,6 @@ Blank line separates doctors
 
 Example:
 
-makefile
-Copy
-Edit
 John
 Smith
 101
@@ -125,9 +110,6 @@ Smith
 Appointment files (*appointments.txt)
 Key–value lines per appointment, separated by a dashed line:
 
-yaml
-Copy
-Edit
 Patient ID: 123
 Patient Name: helin
 Patient Surname: mazi
